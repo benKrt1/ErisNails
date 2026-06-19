@@ -60,5 +60,77 @@
     "salon": "Botanica Nails",
     "loading": "Loading…",
     "error": "Something went wrong. Please try again."
+  },
+  "Admin": {
+    "title": "Admin",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "email": "Email",
+    "password": "Password",
+    "invalidLogin": "Wrong email or password.",
+    "nav": {
+      "dashboard": "Bookings",
+      "schedule": "Schedule",
+      "timeOff": "Time off",
+      "services": "Services"
+    },
+    "dashboard": {
+      "title": "Upcoming bookings",
+      "empty": "No upcoming bookings.",
+      "when": "When",
+      "service": "Service",
+      "customer": "Customer",
+      "contact": "Contact",
+      "notes": "Notes",
+      "cancel": "Cancel",
+      "cancelConfirm": "Cancel this booking?",
+      "cancelled": "Cancelled"
+    },
+    "schedule": {
+      "title": "Weekly schedule",
+      "subtitle": "Set the hours you work each weekday.",
+      "closed": "Closed",
+      "open": "Open",
+      "from": "From",
+      "to": "To",
+      "save": "Save schedule",
+      "saved": "Schedule saved."
+    },
+    "timeOff": {
+      "title": "Time off",
+      "subtitle": "Block whole days or parts of a day.",
+      "date": "Date",
+      "wholeDay": "Whole day",
+      "from": "From",
+      "to": "To",
+      "reason": "Reason (optional)",
+      "add": "Add time off",
+      "empty": "No time off planned.",
+      "remove": "Remove"
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "Manage what clients can book.",
+      "nameEn": "Name (EN)",
+      "nameSv": "Name (SV)",
+      "descEn": "Description (EN)",
+      "descSv": "Description (SV)",
+      "duration": "Duration (min)",
+      "price": "Price (kr)",
+      "active": "Active",
+      "add": "Add service",
+      "save": "Save",
+      "remove": "Remove",
+      "empty": "No services yet."
+    },
+    "weekdays": {
+      "0": "Sunday",
+      "1": "Monday",
+      "2": "Tuesday",
+      "3": "Wednesday",
+      "4": "Thursday",
+      "5": "Friday",
+      "6": "Saturday"
+    }
   }
 }

@@ -60,5 +60,77 @@
     "salon": "Botanica Nails",
     "loading": "Laddar…",
     "error": "Något gick fel. Försök igen."
+  },
+  "Admin": {
+    "title": "Admin",
+    "signIn": "Logga in",
+    "signOut": "Logga ut",
+    "email": "E-post",
+    "password": "Lösenord",
+    "invalidLogin": "Fel e-post eller lösenord.",
+    "nav": {
+      "dashboard": "Bokningar",
+      "schedule": "Schema",
+      "timeOff": "Ledighet",
+      "services": "Behandlingar"
+    },
+    "dashboard": {
+      "title": "Kommande bokningar",
+      "empty": "Inga kommande bokningar.",
+      "when": "När",
+      "service": "Behandling",
+      "customer": "Kund",
+      "contact": "Kontakt",
+      "notes": "Anteckningar",
+      "cancel": "Avboka",
+      "cancelConfirm": "Avboka denna tid?",
+      "cancelled": "Avbokad"
+    },
+    "schedule": {
+      "title": "Veckoschema",
+      "subtitle": "Ange dina arbetstider för varje veckodag.",
+      "closed": "Stängt",
+      "open": "Öppet",
+      "from": "Från",
+      "to": "Till",
+      "save": "Spara schema",
+      "saved": "Schemat sparat."
+    },
+    "timeOff": {
+      "title": "Ledighet",
+      "subtitle": "Blockera hela dagar eller delar av en dag.",
+      "date": "Datum",
+      "wholeDay": "Hela dagen",
+      "from": "Från",
+      "to": "Till",
+      "reason": "Anledning (valfritt)",
+      "add": "Lägg till ledighet",
+      "empty": "Ingen ledighet planerad.",
+      "remove": "Ta bort"
+    },
+    "services": {
+      "title": "Behandlingar",
+      "subtitle": "Hantera vad kunder kan boka.",
+      "nameEn": "Namn (EN)",
+      "nameSv": "Namn (SV)",
+      "descEn": "Beskrivning (EN)",
+      "descSv": "Beskrivning (SV)",
+      "duration": "Längd (min)",
+      "price": "Pris (kr)",
+      "active": "Aktiv",
+      "add": "Lägg till behandling",
+      "save": "Spara",
+      "remove": "Ta bort",
+      "empty": "Inga behandlingar än."
+    },
+    "weekdays": {
+      "0": "Söndag",
+      "1": "Måndag",
+      "2": "Tisdag",
+      "3": "Onsdag",
+      "4": "Torsdag",
+      "5": "Fredag",
+      "6": "Lördag"
+    }
   }
 }

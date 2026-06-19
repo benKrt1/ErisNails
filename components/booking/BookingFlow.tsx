@@ -44,15 +44,11 @@ export default function BookingFlow({
 
   const service = services.find((s) => s.id === serviceId) ?? null;
 
-  // Fetch available slots whenever service or date changes.
+  // Fetch available slots whenever service or date changes. State updates here
+  // happen only inside async callbacks (loading is set by the handlers below).
   useEffect(() => {
-    if (!serviceId || !date) {
-      setSlots([]);
-      return;
-    }
+    if (!serviceId || !date) return;
     let cancelled = false;
-    setSlotsLoading(true);
-    setSlot(null);
     fetch(`/api/availability?date=${date}&service=${serviceId}`)
       .then((r) => r.json())
       .then((data) => {
@@ -68,6 +64,20 @@ export default function BookingFlow({
       cancelled = true;
     };
   }, [serviceId, date]);
+
+  // Selecting a service or day resets the chosen slot and shows the loader
+  // (kept in event handlers so the effect stays free of synchronous setState).
+  function chooseService(id: string) {
+    setServiceId(id);
+    setSlot(null);
+    if (date) setSlotsLoading(true);
+  }
+
+  function chooseDate(d: string) {
+    setDate(d);
+    setSlot(null);
+    setSlotsLoading(true);
+  }
 
   function dateTimeLabel(iso: string): string {
     return new Intl.DateTimeFormat(locale, {
@@ -167,7 +177,7 @@ export default function BookingFlow({
             <button
               key={s.id}
               type="button"
-              onClick={() => setServiceId(s.id)}
+              onClick={() => chooseService(s.id)}
               className={[
                 "flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-colors",
                 s.id === serviceId ? "bg-sand/70" : "hover:bg-sand/40",
@@ -188,7 +198,7 @@ export default function BookingFlow({
           <h2 className="mb-3 text-sm font-medium uppercase tracking-wide text-muted">
             {t("stepDate")}
           </h2>
-          <MonthCalendar selected={date} onSelect={setDate} locale={locale} />
+          <MonthCalendar selected={date} onSelect={chooseDate} locale={locale} />
         </div>
 
         {date && (
