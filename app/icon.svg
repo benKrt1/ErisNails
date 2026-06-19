@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Botanica Nails favicon: a nail-polish bottle in the brand palette -->
+  <rect width="64" height="64" rx="16" fill="#34402F"/>
+  <defs>
+    <clipPath id="bottle">
+      <rect x="21" y="25" width="22" height="29" rx="7"/>
+    </clipPath>
+  </defs>
+  <!-- cap -->
+  <rect x="25" y="9" width="14" height="13" rx="3" fill="#C17A5B"/>
+  <!-- neck -->
+  <rect x="28.5" y="21" width="7" height="5" fill="#A9633F"/>
+  <!-- bottle body -->
+  <rect x="21" y="25" width="22" height="29" rx="7" fill="#F3EDE2"/>
+  <!-- polish fill (lower half) -->
+  <rect x="21" y="39" width="22" height="15" fill="#C17A5B" clip-path="url(#bottle)"/>
+  <!-- highlight -->
+  <rect x="24.5" y="29" width="3" height="9" rx="1.5" fill="#FFFFFF" opacity="0.55"/>
+</svg>
