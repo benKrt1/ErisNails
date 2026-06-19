@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { getAdminClient } from "@/lib/supabase/admin";
+import { DEMO_SERVICES } from "@/lib/demo";
 import type { Service } from "@/lib/types";
 import ServicesManager from "@/components/admin/ServicesManager";
 
@@ -7,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 async function loadAllServices(): Promise<Service[]> {
   const supabase = getAdminClient();
-  if (!supabase) return [];
+  if (!supabase) return DEMO_SERVICES;
   const { data } = await supabase
     .from("services")
     .select("*")

@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations, getLocale } from "next-intl/server";
 import { getAdminClient } from "@/lib/supabase/admin";
+import { demoUpcomingBookings } from "@/lib/demo";
 import BookingsList, {
   type AdminBooking,
 } from "@/components/admin/BookingsList";
@@ -8,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 async function loadUpcoming(locale: string): Promise<AdminBooking[]> {
   const supabase = getAdminClient();
-  if (!supabase) return [];
+  if (!supabase) return demoUpcomingBookings(locale);
 
   const { data } = await supabase
     .from("bookings")

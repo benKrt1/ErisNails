@@ -5,9 +5,14 @@ import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getAdminClient } from "@/lib/supabase/admin";
 import { getCurrentUser } from "@/lib/auth";
+import { isDemoMode } from "@/lib/demo";
 
-/** Guard for every mutating admin action. */
+/**
+ * Guard for every mutating admin action. Returns null in demo mode (preview),
+ * so callers no-op instead of persisting.
+ */
 async function requireUser() {
+  if (isDemoMode()) return null;
   const user = await getCurrentUser();
   if (!user) throw new Error("Not authenticated");
   const supabase = getAdminClient();
@@ -20,6 +25,7 @@ export async function signIn(input: {
   password: string;
   locale: string;
 }): Promise<{ error: string } | void> {
+  if (isDemoMode()) redirect(`/${input.locale}/admin`);
   const supabase = await createSupabaseServerClient();
   const { error } = await supabase.auth.signInWithPassword({
     email: input.email,
@@ -30,13 +36,16 @@ export async function signIn(input: {
 }
 
 export async function signOut(locale: string) {
-  const supabase = await createSupabaseServerClient();
-  await supabase.auth.signOut();
+  if (!isDemoMode()) {
+    const supabase = await createSupabaseServerClient();
+    await supabase.auth.signOut();
+  }
   redirect(`/${locale}/admin/login`);
 }
 
 export async function cancelBooking(id: string, locale: string) {
   const supabase = await requireUser();
+  if (!supabase) return;
   await supabase.from("bookings").update({ status: "cancelled" }).eq("id", id);
   revalidatePath(`/${locale}/admin`);
 }
@@ -53,6 +62,7 @@ export async function saveWorkingHours(
   locale: string,
 ) {
   const supabase = await requireUser();
+  if (!supabase) return;
   // Replace the whole schedule: clear then insert active rows.
   await supabase.from("working_hours").delete().neq("weekday", -1);
   const toInsert = rows.filter((r) => r.is_active);
@@ -72,12 +82,14 @@ export async function addTimeOff(
   locale: string,
 ) {
   const supabase = await requireUser();
+  if (!supabase) return;
   await supabase.from("time_off").insert(input);
   revalidatePath(`/${locale}/admin/time-off`);
 }
 
 export async function deleteTimeOff(id: string, locale: string) {
   const supabase = await requireUser();
+  if (!supabase) return;
   await supabase.from("time_off").delete().eq("id", id);
   revalidatePath(`/${locale}/admin/time-off`);
 }
@@ -96,6 +108,7 @@ export type ServiceInput = {
 
 export async function saveService(input: ServiceInput, locale: string) {
   const supabase = await requireUser();
+  if (!supabase) return;
   if (input.id) {
     await supabase.from("services").update(input).eq("id", input.id);
   } else {
@@ -106,6 +119,7 @@ export async function saveService(input: ServiceInput, locale: string) {
 
 export async function deleteService(id: string, locale: string) {
   const supabase = await requireUser();
+  if (!supabase) return;
   await supabase.from("services").delete().eq("id", id);
   revalidatePath(`/${locale}/admin/services`);
 }

@@ -2,9 +2,10 @@
 
 import { useState, useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { signIn } from "@/app/[locale]/admin/actions";
 
-export default function LoginForm() {
+export default function LoginForm({ demo = false }: { demo?: boolean }) {
   const t = useTranslations("Admin");
   const locale = useLocale();
   const [email, setEmail] = useState("");
@@ -49,6 +50,18 @@ export default function LoginForm() {
           {t("signIn")}
         </button>
       </div>
+
+      {demo && (
+        <div className="mt-6 border-t border-sand pt-5 text-center">
+          <p className="text-sm text-muted">{t("previewLoginNote")}</p>
+          <Link
+            href="/admin"
+            className="mt-3 inline-block rounded-full border border-clay px-6 py-2.5 text-sm text-clay-dark transition-colors hover:bg-clay/10"
+          >
+            {t("previewEnter")}
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

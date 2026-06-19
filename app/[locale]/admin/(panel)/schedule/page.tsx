@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { getAdminClient } from "@/lib/supabase/admin";
+import { demoScheduleMap } from "@/lib/demo";
 import ScheduleEditor from "@/components/admin/ScheduleEditor";
 
 export const dynamic = "force-dynamic";
@@ -8,8 +9,8 @@ type Row = { is_active: boolean; start_time: string; end_time: string };
 
 async function loadSchedule(): Promise<Record<number, Row>> {
   const supabase = getAdminClient();
+  if (!supabase) return demoScheduleMap();
   const result: Record<number, Row> = {};
-  if (!supabase) return result;
 
   const { data } = await supabase.from("working_hours").select("*");
   for (const w of data ?? []) {

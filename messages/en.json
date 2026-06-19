@@ -68,6 +68,9 @@
     "email": "Email",
     "password": "Password",
     "invalidLogin": "Wrong email or password.",
+    "previewBanner": "Preview mode — this is how Eri's admin looks. Changes aren't saved until Supabase is connected.",
+    "previewLoginNote": "Supabase isn't connected yet, so login is disabled. You can still explore the admin in preview mode.",
+    "previewEnter": "Enter preview →",
     "nav": {
       "dashboard": "Bookings",
       "schedule": "Schedule",

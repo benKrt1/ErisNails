@@ -68,6 +68,9 @@
     "email": "E-post",
     "password": "Lösenord",
     "invalidLogin": "Fel e-post eller lösenord.",
+    "previewBanner": "Förhandsvisning — så här ser Eris admin ut. Ändringar sparas inte förrän Supabase är anslutet.",
+    "previewLoginNote": "Supabase är inte anslutet ännu, så inloggning är avstängd. Du kan ändå utforska adminpanelen i förhandsläge.",
+    "previewEnter": "Öppna förhandsvisning →",
     "nav": {
       "dashboard": "Bokningar",
       "schedule": "Schema",
