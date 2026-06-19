@@ -22,7 +22,7 @@ export function buildIcs(params: {
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Botanica Nails//Booking//EN",
+    "PRODID:-//Atelier Eri//Booking//EN",
     "CALSCALE:GREGORIAN",
     "BEGIN:VEVENT",
     `UID:${uid}`,

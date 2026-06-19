@@ -22,7 +22,7 @@ export default function AdminNav() {
     <header className="border-b border-sand bg-cream-soft">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <div className="flex items-center gap-6">
-          <span className="font-display text-lg text-ink">Botanica · Admin</span>
+          <span className="font-display text-lg text-ink">Atelier Eri · Admin</span>
           <nav className="hidden items-center gap-4 text-sm sm:flex">
             {ITEMS.map((item) => {
               const active =

@@ -19,7 +19,7 @@ real bookings, connect Supabase and Resend.
 
 1. Create an account at https://resend.com and an API key → `RESEND_API_KEY`.
 2. Verify a sending domain, then set `EMAIL_FROM`
-   (e.g. `"Botanica Nails <bookings@yourdomain.com>"`).
+   (e.g. `"Atelier Eri <bookings@yourdomain.com>"`).
    For a quick test you can use `onboarding@resend.dev`.
 3. Set `SALON_NOTIFY_EMAIL` to the address where Eri receives new-booking alerts.
 

@@ -13,7 +13,7 @@ export default function Header() {
           href="/"
           className="font-display text-xl tracking-tight text-ink"
         >
-          Botanica Nails
+          Atelier Eri
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm text-muted md:flex">

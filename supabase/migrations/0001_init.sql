@@ -1,4 +1,4 @@
--- Botanica Nails — initial schema
+-- Atelier Eri — initial schema
 -- Single-staff salon: one weekly schedule, one set of bookings.
 
 create extension if not exists "pgcrypto";   -- gen_random_uuid()

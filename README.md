@@ -1,4 +1,4 @@
-# Botanica Nails
+# Atelier Eri
 
 Booking web app for Eri's nail studio.
 

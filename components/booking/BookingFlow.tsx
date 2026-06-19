@@ -120,8 +120,8 @@ export default function BookingFlow({
   // ----- Confirmation view -----
   if (confirmation) {
     const ics = buildIcs({
-      uid: `${confirmation.bookingId}@botanica-nails`,
-      title: `Botanica Nails — ${confirmation.serviceName}`,
+      uid: `${confirmation.bookingId}@atelier-eri`,
+      title: `Atelier Eri — ${confirmation.serviceName}`,
       startsAt: confirmation.startsAt,
       endsAt: confirmation.endsAt,
     });
@@ -143,7 +143,7 @@ export default function BookingFlow({
         </dl>
         <a
           href={icsDataUrl(ics)}
-          download="botanica-appointment.ics"
+          download="atelier-eri-appointment.ics"
           className="mt-8 inline-block rounded-full bg-clay px-6 py-3 text-cream-soft transition-colors hover:bg-clay-dark"
         >
           {tc("addToCalendar")}

@@ -35,13 +35,13 @@ export async function sendBookingEmails(data: BookingEmailData): Promise<void> {
     return;
   }
 
-  const from = process.env.EMAIL_FROM || "Botanica Nails <onboarding@resend.dev>";
+  const from = process.env.EMAIL_FROM || "Atelier Eri <onboarding@resend.dev>";
   const salonInbox = process.env.SALON_NOTIFY_EMAIL;
   const when = formatWhen(data.startsAt);
 
   const ics = buildIcs({
-    uid: `${data.bookingId}@botanica-nails`,
-    title: `Botanica Nails — ${data.serviceName}`,
+    uid: `${data.bookingId}@atelier-eri`,
+    title: `Atelier Eri — ${data.serviceName}`,
     description: `Booking for ${data.customerName}`,
     startsAt: data.startsAt,
     endsAt: data.endsAt,
@@ -85,7 +85,7 @@ export async function sendBookingEmails(data: BookingEmailData): Promise<void> {
       text: [
         `Hi ${data.customerName},`,
         ``,
-        `Your appointment at Botanica Nails is confirmed.`,
+        `Your appointment at Atelier Eri is confirmed.`,
         ``,
         `Service: ${data.serviceName}`,
         `When: ${when}`,

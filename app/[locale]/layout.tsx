@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Botanica Nails",
+  title: "Atelier Eri",
   description: "A quiet ritual for your hands. Book your appointment online.",
 };
 
