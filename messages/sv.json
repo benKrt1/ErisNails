@@ -1,0 +1,64 @@
+{
+  "Nav": {
+    "home": "Hem",
+    "services": "Behandlingar",
+    "book": "Boka",
+    "reserve": "Boka en ritual"
+  },
+  "Home": {
+    "heroTitle": "En stilla ritual för dina händer.",
+    "heroSubtitle": "En liten studio för omsorgsfull nagelvård.",
+    "heroCta": "Boka en ritual",
+    "philosophyEyebrow": "Filosofi",
+    "philosophyTitle": "Kort, medveten omsorg.",
+    "philosophyBody": "Vi är en lugn, detaljinriktad studio. Varje besök är stressfritt och varje ritual anpassad efter dina händer.",
+    "servicesEyebrow": "Behandlingar",
+    "servicesTitle": "Våra ritualer",
+    "servicesCta": "Se alla behandlingar",
+    "bookCtaTitle": "Redo när du är.",
+    "bookCtaBody": "Välj en ritual och en tid som passar dig.",
+    "bookCtaButton": "Boka en ritual"
+  },
+  "Services": {
+    "title": "Behandlingar",
+    "subtitle": "Genomtänkta behandlingar med god tid.",
+    "minutes": "{count} min",
+    "book": "Boka",
+    "empty": "Behandlingar förbereds. Kom gärna tillbaka snart."
+  },
+  "Booking": {
+    "title": "Bokning",
+    "stepService": "Välj en ritual",
+    "stepDate": "Välj en dag",
+    "stepTime": "Välj en tid",
+    "stepDetails": "Dina uppgifter",
+    "name": "Namn",
+    "phone": "Telefon",
+    "email": "E-post",
+    "notes": "Några känsligheter eller önskemål vi bör veta? (valfritt)",
+    "summary": "Sammanfattning",
+    "duration": "Längd",
+    "price": "Pris",
+    "confirm": "Bekräfta bokning",
+    "noSlots": "Inga lediga tider denna dag. Prova en annan.",
+    "loadingSlots": "Laddar lediga tider…",
+    "selectServiceFirst": "Välj en ritual för att se lediga tider.",
+    "submitting": "Bokar…"
+  },
+  "Confirmation": {
+    "title": "Din bekräftelse",
+    "thanks": "Tack, {name}. Din tid är bokad.",
+    "when": "När",
+    "service": "Ritual",
+    "addToCalendar": "Lägg till i kalender",
+    "tips": "Några vänliga noteringar",
+    "tip1": "Kom 5 minuter innan.",
+    "tip2": "Meddela eventuella ändringar så tidigt du kan.",
+    "backHome": "Tillbaka till start"
+  },
+  "Common": {
+    "salon": "Botanica Nails",
+    "loading": "Laddar…",
+    "error": "Något gick fel. Försök igen."
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "Nav": {
+    "home": "Home",
+    "services": "Services",
+    "book": "Book",
+    "reserve": "Reserve a ritual"
+  },
+  "Home": {
+    "heroTitle": "A quiet ritual for your hands.",
+    "heroSubtitle": "A small studio for considered nail care.",
+    "heroCta": "Reserve a ritual",
+    "philosophyEyebrow": "Philosophy",
+    "philosophyTitle": "Short, intentional care.",
+    "philosophyBody": "We are a calm, detail-driven studio. Every appointment is unhurried, every ritual tailored to your hands.",
+    "servicesEyebrow": "Services",
+    "servicesTitle": "Our rituals",
+    "servicesCta": "View all services",
+    "bookCtaTitle": "Ready when you are.",
+    "bookCtaBody": "Choose a ritual and a time that suits you.",
+    "bookCtaButton": "Reserve a ritual"
+  },
+  "Services": {
+    "title": "Services",
+    "subtitle": "Considered treatments, thoughtfully timed.",
+    "minutes": "{count} min",
+    "book": "Book",
+    "empty": "Services are being prepared. Please check back soon."
+  },
+  "Booking": {
+    "title": "Booking",
+    "stepService": "Choose a ritual",
+    "stepDate": "Choose a day",
+    "stepTime": "Choose a time",
+    "stepDetails": "Your details",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "notes": "Any sensitivities or preferences we should know? (optional)",
+    "summary": "Summary",
+    "duration": "Duration",
+    "price": "Price",
+    "confirm": "Confirm booking",
+    "noSlots": "No free times on this day. Please try another.",
+    "loadingSlots": "Loading available times…",
+    "selectServiceFirst": "Select a ritual to see available times.",
+    "submitting": "Booking…"
+  },
+  "Confirmation": {
+    "title": "Your confirmation",
+    "thanks": "Thank you, {name}. Your appointment is booked.",
+    "when": "When",
+    "service": "Ritual",
+    "addToCalendar": "Add to calendar",
+    "tips": "A few gentle notes",
+    "tip1": "Arrive 5 minutes early.",
+    "tip2": "Let us know of any changes as early as you can.",
+    "backHome": "Back to home"
+  },
+  "Common": {
+    "salon": "Botanica Nails",
+    "loading": "Loading…",
+    "error": "Something went wrong. Please try again."
+  }
+}

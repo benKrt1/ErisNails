@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/*
+ * Botanica Nails palette — calm, earthy "ritual" aesthetic from the mockup:
+ * cream backgrounds, sage/olive greens, a terracotta accent, soft ink text.
+ */
+@theme {
+  --color-cream: #f3ede2;
+  --color-cream-soft: #f8f4ec;
+  --color-sand: #e7dcc8;
+  --color-clay: #c17a5b;
+  --color-clay-dark: #a9633f;
+  --color-olive: #6b7257;
+  --color-forest: #34402f;
+  --color-ink: #2e2a24;
+  --color-muted: #6b6256;
+
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
