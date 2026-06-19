@@ -2,6 +2,8 @@
 
 Booking web app for Eri's nail studio.
 
+Live: https://eris-neils.vercel.app
+
 - **Public site** (EN / SV): home, services, and online booking.
 - **Availability engine**: free slots are computed from Eri's weekly schedule, time-off, service duration, and existing bookings — no manual slot management.
 - **Admin**: Eri logs in to see bookings and manage her schedule, time-off, and services.
