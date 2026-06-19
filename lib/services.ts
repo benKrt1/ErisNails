@@ -1,12 +1,13 @@
 import "server-only";
 import { getAdminClient } from "./supabase/admin";
+import { DEMO_SERVICES, demoServiceById } from "./demo";
 import type { Service } from "./types";
 
-// Active services, ordered for display. Returns [] when Supabase isn't
-// configured yet so pages can still render their empty state.
+// Active services, ordered for display. Falls back to demo data when Supabase
+// isn't configured so the booking flow is previewable locally.
 export async function getActiveServices(): Promise<Service[]> {
   const supabase = getAdminClient();
-  if (!supabase) return [];
+  if (!supabase) return DEMO_SERVICES;
 
   const { data, error } = await supabase
     .from("services")
@@ -23,7 +24,7 @@ export async function getActiveServices(): Promise<Service[]> {
 
 export async function getServiceById(id: string): Promise<Service | null> {
   const supabase = getAdminClient();
-  if (!supabase) return null;
+  if (!supabase) return demoServiceById(id);
 
   const { data, error } = await supabase
     .from("services")

@@ -46,9 +46,6 @@ export async function createBooking(
     return { ok: false, error: "invalid" };
   }
 
-  const supabase = getAdminClient();
-  if (!supabase) return { ok: false, error: "server" };
-
   const service = await getServiceById(input.serviceId);
   if (!service) return { ok: false, error: "invalid" };
 
@@ -56,6 +53,25 @@ export async function createBooking(
   const slots = await getAvailableSlots(input.date, input.serviceId);
   const slot = slots.find((s) => s.startsAt === input.startsAt);
   if (!slot) return { ok: false, error: "unavailable" };
+
+  const localizedName = serviceName(service, input.locale);
+
+  const supabase = getAdminClient();
+
+  // Demo mode (no Supabase): confirm without persisting or emailing, so the
+  // full flow — including the confirmation screen — is previewable locally.
+  if (!supabase) {
+    return {
+      ok: true,
+      confirmation: {
+        bookingId: "demo-" + Date.now(),
+        serviceName: localizedName,
+        startsAt: slot.startsAt,
+        endsAt: slot.endsAt,
+        name,
+      },
+    };
+  }
 
   const { data, error } = await supabase
     .from("bookings")
@@ -78,8 +94,6 @@ export async function createBooking(
     console.error("createBooking insert failed:", error.message);
     return { ok: false, error: "server" };
   }
-
-  const localizedName = serviceName(service, input.locale);
 
   // Emails are best-effort; never fail the booking because of them.
   await sendBookingEmails({

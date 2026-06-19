@@ -2,19 +2,33 @@ import "server-only";
 import { getAdminClient } from "./supabase/admin";
 import { computeSlotsForDay, type Slot } from "./availability";
 import { salonWeekday, salonLocalToUtc, SALON_TIMEZONE } from "./datetime";
+import { demoServiceById, DEMO_WORKING_HOURS } from "./demo";
 import type { WorkingHour, TimeOff, Booking, Service } from "./types";
 
 /**
  * Load all inputs for a day from Supabase and compute bookable slots for a
- * given service. Returns [] when Supabase isn't configured or the service is
- * unknown.
+ * given service. Falls back to a demo schedule when Supabase isn't configured.
  */
 export async function getAvailableSlots(
   dateStr: string,
   serviceId: string,
 ): Promise<Slot[]> {
   const supabase = getAdminClient();
-  if (!supabase) return [];
+
+  // Demo mode: compute slots from the demo schedule (no bookings/time-off).
+  if (!supabase) {
+    const demoService = demoServiceById(serviceId);
+    if (!demoService) return [];
+    const weekday = salonWeekday(dateStr);
+    return computeSlotsForDay({
+      dateStr,
+      durationMinutes: demoService.duration_minutes,
+      workingHours: DEMO_WORKING_HOURS.filter((w) => w.weekday === weekday),
+      timeOff: [],
+      bookings: [],
+      timeZone: SALON_TIMEZONE,
+    });
+  }
 
   const { data: service } = await supabase
     .from("services")
