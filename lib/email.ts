@@ -37,7 +37,7 @@ const resendKey = process.env.RESEND_API_KEY;
 const resend = resendKey ? new Resend(resendKey) : null;
 
 type OutgoingEmail = {
-  to: string;
+  to: string | string[];
   subject: string;
   text: string;
   ics?: string; // raw ICS content; attached as appointment.ics when present
@@ -114,7 +114,12 @@ export async function sendBookingEmails(data: BookingEmailData): Promise<void> {
     return;
   }
 
-  const salonInbox = process.env.SALON_NOTIFY_EMAIL;
+  // SALON_NOTIFY_EMAIL may list several recipients, comma- or semicolon-
+  // separated (e.g. "eri@x.com, owner@y.com").
+  const salonInbox = (process.env.SALON_NOTIFY_EMAIL ?? "")
+    .split(/[,;]/)
+    .map((addr) => addr.trim())
+    .filter(Boolean);
   const when = formatWhen(data.startsAt);
 
   const ics = buildIcs({
@@ -127,8 +132,8 @@ export async function sendBookingEmails(data: BookingEmailData): Promise<void> {
 
   const messages: OutgoingEmail[] = [];
 
-  // Notify Eri.
-  if (salonInbox) {
+  // Notify Eri (one email to all salon recipients).
+  if (salonInbox.length > 0) {
     messages.push({
       to: salonInbox,
       subject: `New booking — ${data.serviceName}, ${when}`,
