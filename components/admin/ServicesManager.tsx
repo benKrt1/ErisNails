@@ -18,6 +18,7 @@ const EMPTY: ServiceInput = {
   price: 0,
   is_active: true,
   sort_order: 0,
+  category: "nails",
 };
 
 function ServiceForm({
@@ -101,6 +102,19 @@ function ServiceForm({
             onChange={(e) => set("price", Number(e.target.value) || 0)}
           />
         </label>
+        <label className="flex flex-col gap-1 text-xs text-muted">
+          {t("category")}
+          <select
+            className={input}
+            value={form.category}
+            onChange={(e) =>
+              set("category", e.target.value as ServiceInput["category"])
+            }
+          >
+            <option value="nails">{t("categoryNails")}</option>
+            <option value="brows">{t("categoryBrows")}</option>
+          </select>
+        </label>
       </div>
 
       <div className="mt-4 flex items-center gap-4">
@@ -159,6 +173,7 @@ export default function ServicesManager({
             price: s.price,
             is_active: s.is_active,
             sort_order: s.sort_order,
+            category: s.category,
           }}
           onDelete={() =>
             startTransition(() => deleteService(s.id, locale))

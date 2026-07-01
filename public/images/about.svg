@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" role="img" aria-label="Placeholder — portrait of Eri">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7dcc8"/>
+      <stop offset="1" stop-color="#c17a5b"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#g)"/>
+  <circle cx="450" cy="430" r="150" fill="#f8f4ec" opacity="0.55"/>
+  <rect x="250" y="600" width="400" height="360" rx="200" fill="#f8f4ec" opacity="0.45"/>
+  <text x="60" y="1040" font-family="Georgia, serif" font-size="30" fill="#34402f" opacity="0.55">placeholder · portrait of Eri</text>
+</svg>

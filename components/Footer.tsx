@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <p className="font-display text-2xl">{t("salon")}</p>
         <p className="mt-2 max-w-sm text-sm text-cream-soft/70">
-          A quiet ritual for your hands.
+          {t("tagline")}
         </p>
         <p className="mt-8 text-xs text-cream-soft/50">
           © {year} {t("salon")}

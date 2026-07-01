@@ -6,6 +6,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getAdminClient } from "@/lib/supabase/admin";
 import { getCurrentUser } from "@/lib/auth";
 import { isDemoMode } from "@/lib/demo";
+import type { ServiceCategory } from "@/lib/types";
 
 /**
  * Guard for every mutating admin action. Returns null in demo mode (preview),
@@ -104,6 +105,7 @@ export type ServiceInput = {
   price: number;
   is_active: boolean;
   sort_order: number;
+  category: ServiceCategory;
 };
 
 export async function saveService(input: ServiceInput, locale: string) {

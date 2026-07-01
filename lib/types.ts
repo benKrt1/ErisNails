@@ -1,5 +1,7 @@
 // Shared domain types for the booking app.
 
+export type ServiceCategory = "nails" | "brows";
+
 export type Service = {
   id: string;
   name_en: string;
@@ -10,6 +12,7 @@ export type Service = {
   price: number;
   is_active: boolean;
   sort_order: number;
+  category: ServiceCategory;
 };
 
 export type WorkingHour = {
@@ -53,4 +56,19 @@ export function serviceDescription(
   locale: string,
 ): string | null {
   return locale === "sv" ? service.description_sv : service.description_en;
+}
+
+/**
+ * Split an ordered service list into its two categories, preserving order.
+ * Single source of truth for the nails/brows grouping used across the home,
+ * services, and booking pages.
+ */
+export function servicesByCategory(services: Service[]): {
+  nails: Service[];
+  brows: Service[];
+} {
+  return {
+    nails: services.filter((s) => s.category === "nails"),
+    brows: services.filter((s) => s.category === "brows"),
+  };
 }

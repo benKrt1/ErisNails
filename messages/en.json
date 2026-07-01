@@ -2,26 +2,50 @@
   "Nav": {
     "home": "Home",
     "services": "Services",
+    "nails": "Nails",
+    "brows": "Brows",
     "book": "Book",
     "reserve": "Reserve a ritual"
   },
   "Home": {
-    "heroTitle": "A quiet ritual for your hands.",
-    "heroSubtitle": "A small studio for considered nail care.",
+    "heroEyebrow": "Atelier Eri · Nail & brow studio",
+    "heroTitle": "Nails & brows, considered.",
+    "heroSubtitle": "A small Swedish studio for unhurried nail and brow care.",
     "heroCta": "Reserve a ritual",
     "philosophyEyebrow": "Philosophy",
     "philosophyTitle": "Short, intentional care.",
-    "philosophyBody": "We are a calm, detail-driven studio. Every appointment is unhurried, every ritual tailored to your hands.",
+    "philosophyBody": "We are a calm, detail-driven studio. Every appointment is unhurried, every ritual — hands or brows — tailored to you.",
     "servicesEyebrow": "Services",
     "servicesTitle": "Our rituals",
+    "nailsTitle": "Nails",
+    "browsTitle": "Brows",
     "servicesCta": "View all services",
     "bookCtaTitle": "Ready when you are.",
     "bookCtaBody": "Choose a ritual and a time that suits you.",
     "bookCtaButton": "Reserve a ritual"
   },
+  "Gallery": {
+    "eyebrow": "Portfolio",
+    "title": "A closer look at the work.",
+    "alt": "Nail and brow work, sample {n}"
+  },
+  "About": {
+    "eyebrow": "The studio",
+    "title": "Cared for by Eri.",
+    "body": "Atelier Eri is a one-chair studio built around a single idea: that a manicure or a brow shaping should feel like a pause, not an errand.",
+    "body2": "Every treatment is mapped to you — your hands, your features, your pace. No rush, no noise, just careful work in good light.",
+    "signature": "— Eri",
+    "alt": "Eri, founder of Atelier Eri"
+  },
+  "Testimonials": {
+    "eyebrow": "Kind words",
+    "title": "What clients say."
+  },
   "Services": {
     "title": "Services",
     "subtitle": "Considered treatments, thoughtfully timed.",
+    "nailsTitle": "Nails",
+    "browsTitle": "Brows",
     "minutes": "{count} min",
     "book": "Book",
     "empty": "Services are being prepared. Please check back soon."
@@ -29,6 +53,9 @@
   "Booking": {
     "title": "Booking",
     "stepService": "Choose a ritual",
+    "minutes": "{count} min",
+    "nails": "Nails",
+    "brows": "Brows",
     "stepDate": "Choose a day",
     "stepTime": "Choose a time",
     "stepDetails": "Your details",
@@ -58,6 +85,7 @@
   },
   "Common": {
     "salon": "Atelier Eri",
+    "tagline": "Nails & brows, considered.",
     "loading": "Loading…",
     "error": "Something went wrong. Please try again."
   },
@@ -120,6 +148,9 @@
       "descSv": "Description (SV)",
       "duration": "Duration (min)",
       "price": "Price (kr)",
+      "category": "Category",
+      "categoryNails": "Nails",
+      "categoryBrows": "Brows",
       "active": "Active",
       "add": "Add service",
       "save": "Save",

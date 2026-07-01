@@ -18,8 +18,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Atelier Eri",
-  description: "A quiet ritual for your hands. Book your appointment online.",
+  metadataBase: new URL("https://eris-neils.vercel.app"),
+  title: "Atelier Eri — Nail & brow studio",
+  description:
+    "A small Swedish studio for unhurried nail and brow care. Book your appointment online.",
+  openGraph: {
+    title: "Atelier Eri — Nail & brow studio",
+    description:
+      "A small Swedish studio for unhurried nail and brow care. Book your appointment online.",
+    images: ["/images/hero.svg"],
+    type: "website",
+  },
 };
 
 export function generateStaticParams() {

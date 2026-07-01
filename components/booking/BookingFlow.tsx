@@ -3,7 +3,7 @@
 import { useEffect, useState, useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { serviceName, type Service } from "@/lib/types";
+import { serviceName, servicesByCategory, type Service } from "@/lib/types";
 import type { Slot } from "@/lib/availability";
 import { buildIcs, icsDataUrl } from "@/lib/ics";
 import type { BookingInput, BookingResult } from "@/app/[locale]/(site)/book/actions";
@@ -167,28 +167,41 @@ export default function BookingFlow({
   // ----- Booking view (3 columns like the mockup) -----
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr_1fr]">
-      {/* Column 1 — services */}
+      {/* Column 1 — services, grouped by category */}
       <section className="rounded-2xl border border-sand bg-cream-soft p-5">
         <h2 className="mb-4 text-sm font-medium uppercase tracking-wide text-muted">
           {t("stepService")}
         </h2>
-        <div className="space-y-2">
-          {services.map((s) => (
-            <button
-              key={s.id}
-              type="button"
-              onClick={() => chooseService(s.id)}
-              className={[
-                "flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-colors",
-                s.id === serviceId ? "bg-sand/70" : "hover:bg-sand/40",
-              ].join(" ")}
-            >
-              <span className="text-ink">{serviceName(s, locale)}</span>
-              <span className="text-xs text-muted">
-                {t("minutes", { count: s.duration_minutes })}
-              </span>
-            </button>
-          ))}
+        <div className="space-y-5">
+          {(["nails", "brows"] as const).map((cat) => {
+            const group = servicesByCategory(services)[cat];
+            if (group.length === 0) return null;
+            return (
+              <div key={cat}>
+                <p className="mb-2 text-xs uppercase tracking-[0.16em] text-clay">
+                  {t(cat)}
+                </p>
+                <div className="space-y-2">
+                  {group.map((s) => (
+                    <button
+                      key={s.id}
+                      type="button"
+                      onClick={() => chooseService(s.id)}
+                      className={[
+                        "flex w-full items-center justify-between rounded-xl px-4 py-3 text-left transition-colors",
+                        s.id === serviceId ? "bg-sand/70" : "hover:bg-sand/40",
+                      ].join(" ")}
+                    >
+                      <span className="text-ink">{serviceName(s, locale)}</span>
+                      <span className="text-xs text-muted">
+                        {t("minutes", { count: s.duration_minutes })}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

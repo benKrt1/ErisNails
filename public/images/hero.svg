@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-label="Placeholder — natural-light photo of hands and brows">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6b7257"/>
+      <stop offset="0.55" stop-color="#34402f"/>
+      <stop offset="1" stop-color="#2e2a24"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.32" r="0.6">
+      <stop offset="0" stop-color="#c17a5b" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#c17a5b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <g fill="#f3ede2" opacity="0.14">
+    <circle cx="1180" cy="360" r="240"/>
+    <circle cx="420" cy="720" r="160"/>
+  </g>
+  <text x="80" y="920" font-family="Georgia, serif" font-size="34" fill="#f8f4ec" opacity="0.5">placeholder · swap for Eri's hero photo</text>
+</svg>
