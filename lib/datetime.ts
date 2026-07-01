@@ -17,18 +17,32 @@ export function minutesToTime(min: number): string {
   return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 }
 
+/** Shift a "YYYY-MM-DD" date string by whole days (calendar-safe). */
+function shiftDateStr(dateStr: string, days: number): string {
+  const d = new Date(`${dateStr}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
 /**
  * A wall-clock time (`dateStr` "YYYY-MM-DD" + `minutes` since midnight) in the
  * salon timezone, converted to the corresponding UTC instant.
+ *
+ * `minutes` may be >= 1440 (e.g. 24:00 for end-of-day bounds); the overflow
+ * rolls into the following calendar day rather than producing an invalid
+ * "T24:00:00" string.
  */
 export function salonLocalToUtc(
   dateStr: string,
   minutes: number,
   timeZone: string = SALON_TIMEZONE,
 ): Date {
-  const hh = String(Math.floor(minutes / 60)).padStart(2, "0");
-  const mm = String(minutes % 60).padStart(2, "0");
-  return fromZonedTime(`${dateStr}T${hh}:${mm}:00`, timeZone);
+  const dayOffset = Math.floor(minutes / (24 * 60));
+  const dayMinutes = minutes - dayOffset * 24 * 60;
+  const day = dayOffset === 0 ? dateStr : shiftDateStr(dateStr, dayOffset);
+  const hh = String(Math.floor(dayMinutes / 60)).padStart(2, "0");
+  const mm = String(dayMinutes % 60).padStart(2, "0");
+  return fromZonedTime(`${day}T${hh}:${mm}:00`, timeZone);
 }
 
 /** A UTC instant -> minutes since local midnight in the salon timezone. */

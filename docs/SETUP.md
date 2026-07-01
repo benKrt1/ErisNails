@@ -6,10 +6,13 @@ real bookings, connect Supabase and Resend.
 ## 1. Supabase
 
 1. Create a project at https://supabase.com.
-2. In the SQL Editor, run `supabase/migrations/0001_init.sql`, then
-   `supabase/seed.sql` (sample services + a weekly schedule).
+2. In the SQL Editor, run the migrations **in order**, then the seed:
+   1. `supabase/migrations/0001_init.sql`
+   2. `supabase/migrations/0002_service_category.sql`
+   3. `supabase/seed.sql` (sample nail & brow services + a weekly schedule)
 3. Create Eri's admin login: **Authentication → Users → Add user** (email +
-   password). This is the only account that can reach `/admin`.
+   password, and tick *Auto Confirm User*). This is the only account that can
+   reach `/admin`.
 4. Copy the keys from **Project Settings → API**:
    - `Project URL` → `NEXT_PUBLIC_SUPABASE_URL`
    - `anon public` → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
