@@ -23,7 +23,7 @@ export default async function Gallery() {
             className="relative aspect-square overflow-hidden rounded-2xl shadow-soft"
           >
             <Image
-              src={`/images/gallery-${n}.svg`}
+              src={`/images/gallery-${n}.jpg`}
               alt={t("alt", { n })}
               fill
               sizes="(max-width: 640px) 50vw, 33vw"

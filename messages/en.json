@@ -2,8 +2,6 @@
   "Nav": {
     "home": "Home",
     "services": "Services",
-    "nails": "Nails",
-    "brows": "Brows",
     "book": "Book",
     "reserve": "Reserve a ritual"
   },
@@ -44,8 +42,6 @@
   "Services": {
     "title": "Services",
     "subtitle": "Considered treatments, thoughtfully timed.",
-    "nailsTitle": "Nails",
-    "browsTitle": "Brows",
     "minutes": "{count} min",
     "book": "Book",
     "empty": "Services are being prepared. Please check back soon."

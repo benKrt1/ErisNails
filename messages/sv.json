@@ -2,8 +2,6 @@
   "Nav": {
     "home": "Hem",
     "services": "Behandlingar",
-    "nails": "Naglar",
-    "brows": "Bryn",
     "book": "Boka",
     "reserve": "Boka en ritual"
   },
@@ -44,8 +42,6 @@
   "Services": {
     "title": "Behandlingar",
     "subtitle": "Genomtänkta behandlingar med god tid.",
-    "nailsTitle": "Naglar",
-    "browsTitle": "Bryn",
     "minutes": "{count} min",
     "book": "Boka",
     "empty": "Behandlingar förbereds. Kom gärna tillbaka snart."

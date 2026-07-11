@@ -10,7 +10,8 @@ export default async function Hero() {
   return (
     <section className="relative min-h-[78vh] overflow-hidden">
       <Image
-        src="/images/hero.svg"
+        src="/images/hero.jpg
+        "
         alt=""
         fill
         priority

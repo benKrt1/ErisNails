@@ -17,18 +17,6 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm text-muted md:flex">
-          <Link
-            href="/services#nails"
-            className="hover:text-ink transition-colors"
-          >
-            {t("nails")}
-          </Link>
-          <Link
-            href="/services#brows"
-            className="hover:text-ink transition-colors"
-          >
-            {t("brows")}
-          </Link>
           <Link href="/services" className="hover:text-ink transition-colors">
             {t("services")}
           </Link>
